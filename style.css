@@ -1,0 +1,49 @@
+body {
+    font-family: Arial, monospace;
+    margin: 30px;
+    background-color: hsla(251, 98%, 80%, 0.762);
+    color: #333;
+}
+
+h1 {
+    color :rgb(11, 51, 79);
+    font-size: 36px;
+    text-align: center;
+}
+
+table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 20px;
+}
+
+th {
+    background-color:rgb(14, 31, 182);
+    color: aliceblue
+}
+
+td { 
+    
+    border: 3px solid #ddd;
+    padding: 8px;
+    text-align: left;
+}
+
+button {
+    background-color: rgb(127, 49, 244);
+    color: white;
+    padding: 5px 20px;
+    cursor: pointer;
+}
+
+button:hover {
+    background-color: #e50c0c;
+}
+
+
+.filter{
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 20px;
+    
+}
