@@ -1,112 +1,50 @@
 <?php
-
 include "koneksi.php";
-
-$sql = "SELECT * FROM daftar_pelanggan";
-
-$result = mysqli_query($koneksi, $sql);
-
+$result = mysqli_query($koneksi, "SELECT * FROM daftar_pelanggan");
 ?>
 
 <!DOCTYPE html>
-<html lang="en">
-
+<html lang="id">
 <head>
-
     <meta charset="UTF-8">
-
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
     <title>Data Pelanggan</title>
-
     <link rel="stylesheet" href="style.css">
-
+    
 </head>
-
 <body>
 
     <h1>Daftar Pelanggan</h1>
-
     <h2>Pengelolaan akun pembeli</h2>
 
-
     <div class="filter">
-
         <input type="text" placeholder="Cari pelanggan...">
-
     </div>
 
-
     <table>
-
         <tr>
-
             <th>No.</th>
-
             <th>Nama</th>
-
             <th>Email</th>
-
             <th>No HP</th>
-
             <th>Member</th>
-
             <th>More</th>
-
         </tr>
 
-
-        <?php while ($data = mysqli_fetch_assoc($result)) { ?>
-
+        <?php while ($data = mysqli_fetch_assoc($result)) : ?>
         <tr>
-
-            <td>
-                <?php echo $data['id']; ?>
-            </td>
-
-            <td>
-                <?php echo $data['nama']; ?>
-            </td>
-
-            <td>
-                <?php echo $data['email']; ?>
-            </td>
-
-            <td>
-                <?php echo $data['no_hp']; ?>
-            </td>
-
-            <td>
-                <?php echo $data['member']; ?>
-            </td>
-
-            <td>
-
-                <a href="pelanggan-detail.php?id=<?php echo $data['id']; ?>">
-                    Detail
-                </a>
-
-            </td>
-
+            <td><?= $data['id'] ?></td>
+            <td><?= $data['nama'] ?></td>
+            <td><?= $data['email'] ?></td>
+            <td><?= $data['no_hp'] ?></td>
+            <td><?= $data['member'] ?></td>
+            <td><a href="pelanggan-detail.php?id=<?= $data['id'] ?>">Detail</a></td>
         </tr>
-
-        <?php } ?>
-
+        <?php endwhile; ?>
     </table>
 
-
     <br>
-
-
-    <form action="tambah-pelanggan.php">
-
-        <button type="submit">
-            Tambah Pelanggan
-        </button>
-
-    </form>
-
+    <a href="tambah-pelanggan.php"><button type="button">Tambah Pelanggan</button></a>
 
 </body>
-
 </html>
